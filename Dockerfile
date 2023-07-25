@@ -5,7 +5,10 @@ RUN apk add --no-cache jq curl bind-tools
 
 COPY root /
 
-RUN chmod +x /etc/cont-init.d/* -R -f
+RUN chmod +x /etc/cont-init.d -R -f
+RUN chmod +x /etc/cont-finish.d -R -f
+RUN chmod +x /etc/services.d/crond -R -f
+RUN chmod +x /app/cloudflare.sh
 
 ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz /tmp
 RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
