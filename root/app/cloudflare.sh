@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv sh
+#!/usr/bin/env sh
 
 cloudflare() {
   if [ -f "$API_KEY_FILE" ]; then
